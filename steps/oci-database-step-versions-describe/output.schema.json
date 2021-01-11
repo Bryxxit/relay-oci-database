@@ -2,16 +2,16 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"type": "object",
 	"properties": {
-		"images": {
+		"versions": {
 			"type": "array",
 			"items": {
 				"type": "object"
 			},
-			"description": "The images in the given region owned by the provided account."
+			"description": "The database versions in the given region."
 		}
 	},
 	"required": [
-		"images"
+		"versions"
 	],
 	"additionalProperties": false
 }

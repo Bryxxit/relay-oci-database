@@ -7,19 +7,19 @@ kind: Step
 
 # The name of the action. Required. Must be exactly the name of the directory
 # containing the action.
-name: oci-compute-step-images-describe
+name: oci-database-step-versions-describe
 
 # The version of the action. Required. Must be an integer. If specified in the
 # directory name, must be exactly the version in the directory name.
 version: 1
 
 # High-level phrase describing what this action does. Required.
-summary: Describe Compute images 
+summary: Describe database versions 
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
 description: |
-  Lists the images in an OCI region that are owned by provided acccount.
+  Lists the versions in an OCI region that are owned by provided acccount.
 
 # URL or path relative to this file to an icon or icons representing this
 # action. Optional. Defaults to the integration icon.
@@ -37,7 +37,7 @@ build:
   kind: Docker
 
 publish:
-  repository: relaysh/oci-compute-step-images-describe
+  repository: relaysh/oci-database-step-versions-describe
 
 schemas:
   spec: 
@@ -48,12 +48,12 @@ schemas:
     file: output.schema.json 
 
 examples:
-- summary: Describe Compute images
+- summary: Describe database versions
   content:
     apiVersion: v1
     kind: Step
-    name: describe-images
-    image: relaysh/oci-compute-step-images-describe
+    name: describe-versions
+    image: relaysh/oci-database-step-versions-describe
     spec:
       oci:
         connection: !Connection { type: oci, name: my-oci-account }
