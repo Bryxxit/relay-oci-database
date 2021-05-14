@@ -6,8 +6,8 @@ config = oci.config.from_file()
 from oci.config import validate_config
 validate_config(config)
 
-# initialize the ComputeClient
-compute = oci.core.ComputeClient(config)
+# initialize the DatabaseClient
+database = oci.database.DatabaseClient(config)
 
 instanceIDs = "dfsdfgsfdsdf","fsdxfgsd"
 
@@ -17,4 +17,4 @@ if not instanceIDs:
 
 print('Starting instances: {}'.format(instanceIDs))
 for instanceID in instanceIDs:
-  compute.instance_action(instanceID,"START")
+  database.db_node_action(instanceID,"START")

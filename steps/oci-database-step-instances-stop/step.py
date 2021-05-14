@@ -6,8 +6,8 @@ config = oci.config.from_file()
 from oci.config import validate_config
 validate_config(config)
 
-# initialize the ComputeClient
-compute = oci.core.ComputeClient(config)
+# initialize the DatabaseClient
+database = oci.database.DatabaseClient(config)
 
 instanceIDs = "dfsdfgsfdsdf","fsdxfgsd"
 
@@ -15,14 +15,6 @@ if not instanceIDs:
   print("No instance IDs found")
   exit(0)
 
-graceful = False
-
-if graceful:
-  print('Gracefully stoping instances: {}'.format(instanceIDs))
-  action = "SOFTSTOP"
-else:
-  print('Stoping instances: {}'.format(instanceIDs))
-  action = "STOP"
-
+print('Starting instances: {}'.format(instanceIDs))
 for instanceID in instanceIDs:
-  compute.instance_action(instanceID,action)
+  database.db_node_action(instanceID,"STOP")

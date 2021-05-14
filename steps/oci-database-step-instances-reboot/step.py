@@ -6,8 +6,8 @@ config = oci.config.from_file()
 from oci.config import validate_config
 validate_config(config)
 
-# initialize the ComputeClient
-compute = oci.core.ComputeClient(config)
+# initialize the DatabaseClient
+database = oci.database.DatabaseClient(config)
 
 instanceIDs = "dfsdfgsfdsdf","fsdxfgsd"
 
@@ -25,4 +25,4 @@ else:
   action = "RESET"
 
 for instanceID in instanceIDs:
-  compute.instance_action(instanceID,action)
+  database.db_node_action(instanceID,action)
